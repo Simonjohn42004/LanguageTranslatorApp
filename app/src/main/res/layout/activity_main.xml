@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:padding="16dp"
+    android:background="#E2C7C7">
+
+    <!-- Title of the App -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Language Translator App"
+        android:textSize="24sp"
+        android:background="#BA68C8"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <!-- Language Selection Spinners -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Spinner
+            android:id="@+id/fromLanguageSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/SpinnerTextStyle"
+            android:background="@drawable/spinner_background"
+            android:entries="@array/languages_array"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/toLanguageSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/SpinnerTextStyle"
+            android:background="@drawable/spinner_background"
+            android:entries="@array/languages_array"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+
+    <!-- Input Text Box -->
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/darker_gray"
+        android:hint="Enter text to translate"
+        android:gravity="top|start"
+        android:padding="8dp"
+        android:scrollbars="vertical"
+        android:inputType="textMultiLine"/>
+
+    <!-- Translate Button -->
+    <Button
+        android:id="@+id/translateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Translate"
+        android:layout_gravity="center"
+        android:backgroundTint="#BA68C8"/>
+
+    <!-- Output Text Box (Read-Only) -->
+    <EditText
+        android:id="@+id/outputText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:hint="Translation will appear here"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:scrollbars="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:selectAllOnFocus="true"
+        android:longClickable="true"
+        android:inputType="none"
+        android:cursorVisible="false" />
+
+    <LinearLayout
+        android:id="@+id/loadingScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:background="@android:color/white">
+
+        <ProgressBar
+            android:id="@+id/loadingSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Downloading language model, please wait..."
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+</LinearLayout>
